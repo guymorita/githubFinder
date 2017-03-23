@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import {
   ListView,
   Text,
-  View
+  View,
+  TextInput
 } from 'react-native';
 
 import { connect } from 'react-redux'
@@ -19,7 +20,11 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log('fetching')
+    this.searchGithub();
+  }
+
+  searchGithub(uri = '')
+  {
     return fetch(`https://api.github.com/search/repositories?q=topic:ruby+topic:rails`)
       .then(response => response.json())
       .then(json => {
@@ -31,10 +36,18 @@ class Home extends Component {
 
   render() {
     return (
+      <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+      <TextInput style={{height:50}}
+    placeholder="Search..."
+    placeholderTextColor="pink"            
+    returnKeyType="search"
+    onSubmitEditing={(value) => this.searchAgain(value)}/>
+      
       <ListView
         dataSource={this.state.dataSource}
         renderRow={(rowData) => <Text>{rowData.name}</Text>}
       />
+      </View>
     );
   }
 }

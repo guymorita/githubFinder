@@ -63,6 +63,7 @@ class Login extends Component {
         }
         dispatch(saveUser(result))
         // alert('result: ' + JSON.stringify(result));
+        this.props.navigator.push({title:'Home'});
         return (result);
       },
     );
