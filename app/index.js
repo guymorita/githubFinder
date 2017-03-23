@@ -10,6 +10,10 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { reducer } from './reducers/reducer'
 
+import Home from './containers/Home'
+import Login from './containers/Login'
+import Settings from './containers/Settings'
+
 const store = createStore(reducer)
 
 export default class App extends Component {
@@ -31,13 +35,24 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Navigator
-          initialRoute={routes[0]}
+          initialRoute={routes[1]}
           initialRouteStack={routes}
-          renderScene={(route, navigator) =>
-            <View><Text>Hi</Text></View>
-          }
+          renderScene={this._renderScenes.bind(this)}
         />
       </Provider>
     );
+  }
+
+  _renderScenes(route, navigator) {
+    const title = route.title
+    switch(title) {
+      case 'Login':
+        return <Login navigator={navigator} />
+      case 'Home':
+        return <Home navigator={navigator} />
+      case 'Settings':
+        return <Settings navigator={navigator} />
+
+    }
   }
 }
