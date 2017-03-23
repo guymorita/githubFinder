@@ -35,7 +35,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Navigator
-          initialRoute={routes[1]}
+          initialRoute={routes[0]}
           initialRouteStack={routes}
           renderScene={this._renderScenes.bind(this)}
         />
