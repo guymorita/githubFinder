@@ -52,5 +52,27 @@
 			</dict>
 		</dict>
 	</dict>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb299530596753936</string>
+      </array>
+    </dict>
+  </array>
+  <key>FacebookAppID</key>
+  <string>299530596753936</string>
+  <key>FacebookDisplayName</key>
+  <string>Seraph</string>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+  </array>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Just a test!</string>
 </dict>
 </plist>
